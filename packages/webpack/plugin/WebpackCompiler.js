@@ -498,10 +498,8 @@ function prepareConfig(target, webpackConfig, usingDevServer, settings) {
     webpackConfig.plugins = [];
   }
   
-  if (webpackConfig.hotMiddleware) {
-    if(webpackConfig.hotMiddleware.HotModuleReplacementPlugin){
-      webpackConfig.plugins.unshift(new webpack.HotModuleReplacementPlugin());
-    }
+  if(webpackConfig.HotModuleReplacementPlugin){
+    webpackConfig.plugins.unshift(new webpack.HotModuleReplacementPlugin());
   }
 
   if (!IS_DEBUG && !settings.disableDedupePlugin) {
